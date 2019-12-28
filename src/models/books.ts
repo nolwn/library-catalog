@@ -2,7 +2,7 @@ import short from "short-uuid";
 import * as data from "../books.json";
 import { IBook, IPostBook } from "../types";
 
-const books: IBook[] = data.books;
+let books: IBook[] = data.books;
 
 export const getBooks = (): IBook[] => {
     return books;
@@ -18,8 +18,8 @@ export const getBook = (id: string): IBook | null => {
 };
 
 export const createBook = (createdBook: IPostBook): string => {
-    const id = short.uuid();
-    const newBook = { id, ...createdBook };
+    const id: string = short.uuid();
+    const newBook: IBook = { id, ...createdBook };
 
     books.push(newBook);
     return id;
@@ -28,7 +28,7 @@ export const createBook = (createdBook: IPostBook): string => {
 export const deleteBook = (id: string): IBook | null => {
     let found = null;
 
-    const newBooks = books.filter((book) => {
+    books = books.filter((book) => {
         if (book.id === id) {
             found = book;
             return false;
@@ -40,8 +40,13 @@ export const deleteBook = (id: string): IBook | null => {
     return found;
 };
 
-export const updateBook = (id: string): IBook | null => {
-    const found = getBook(id);
-    //FIXME expand with body
-    return found;
+export const updateBook = (newBook: IBook): IBook | null => {
+    books.forEach((book) => {
+        if (book.id === newBook.id) {
+            book = newBook;
+            return book;
+        }
+    });
+
+    return null;
 };

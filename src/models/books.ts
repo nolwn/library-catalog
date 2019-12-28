@@ -1,25 +1,26 @@
-import * as data  from "../books.json"
-import { Book } from "../types"
+import short from "short-uuid";
+import * as data from "../books.json";
+import { IBook, IPostBook } from "../types";
 
-const books: Book[] = data.books;
+const books: IBook[] = data.books;
 
-export const getBooks = (): Book[] => {
+export const getBooks = (): IBook[] => {
     return books;
 };
 
-<<<<<<< HEAD
-export const getBook = (): Book => {
-    return books[0];
-};
-
-export const createBook = (createdBook: Book): Book => {
-    books.push(createdBook);
-    return createdBook
-=======
-export const getBook = (id: string): Book | null => {
+export const getBook = (id: string): IBook | null => {
     for (const book of books) {
-        if (book.id === id) return book;
+        if (book.id === id)  {
+            return book;
+        }
     }
     return null;
->>>>>>> 9b57e3696c4fba545da3fdf01123699539ab6d08
+};
+
+export const createBook = (createdBook: IPostBook): string => {
+    const id = short.uuid();
+    const newBook = { id, ...createdBook };
+
+    books.push(newBook);
+    return id;
 };

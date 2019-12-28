@@ -1,11 +1,12 @@
+import bodyParser from "body-parser";
 import express from "express";
 import { bookRouter } from "./routes/books";
-// import bodyParser from "body-parser";
 
 const app: express.Express = express();
 const port: number = 3000;
 
-// app.use(bodyParser);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/books", bookRouter);
 
-app.listen(port);
+app.listen(port, () => { console.log(`****---->>>> Listening on Port: ${port} <<<<----****`); });

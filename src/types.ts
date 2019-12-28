@@ -1,4 +1,4 @@
-export interface Book {
+export interface IBook {
     title: string;
     authorFirst?: string;
     authorLast: string;
@@ -17,7 +17,7 @@ export interface Book {
     description?: string;
 }
 
-export interface PostBook {
+export interface IPostBook {
     title: string;
     authorFirst?: string;
     authorLast: string;

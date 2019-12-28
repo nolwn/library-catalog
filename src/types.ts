@@ -12,4 +12,7 @@ export interface Book {
     isbn10?: string;
     isbn13?: string;
     LOC?: string;
+
+    keywords?: string[];
+    description?: string;
 }

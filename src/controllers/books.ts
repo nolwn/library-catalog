@@ -12,3 +12,15 @@ export const getBooks: express.RequestHandler = (req: express.Request, res: expr
         res.status(500).send();
     }
 };
+
+export const getBook: express.RequestHandler = (req: express.Request, res: express.Response): void => {
+    try {
+        const book: Book = models.getBook();
+        if (!book) {
+            res.status(404);
+        }
+        res.status(200).send(book);
+    } catch(err) {
+        res.status(500).send();
+    }
+};

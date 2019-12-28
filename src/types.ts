@@ -1,7 +1,7 @@
-interface Book {
+export interface Book {
     title: string;
-    author_first?: string;
-    author_last: string;
+    authorFirst?: string;
+    authorLast: string;
     id: string;
 
     edition?: string;

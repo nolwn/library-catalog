@@ -44,6 +44,8 @@ export const deleteBook: express.RequestHandler = (req: express.Request, res: ex
 export const updateBook: express.RequestHandler = (req: express.Request, res: express.Response): void => {
     try {
         const book: IBook | null = models.updateBook(req.body);
+        console.log(book);
+        console.log(req.body);
         if (!book) {
             res.status(404).send();
         } else {

@@ -41,12 +41,15 @@ export const deleteBook = (id: string): IBook | null => {
 };
 
 export const updateBook = (newBook: IBook): IBook | null => {
-    books.forEach((book) => {
+    let found: null | IBook = null;
+    const newBooks: IBook[] = books.map((book) => {
         if (book.id === newBook.id) {
-            book = newBook;
-            return book;
+            found = newBook;
+            return newBook;
         }
+        return book;
     });
+    books = newBooks;
 
-    return null;
+    return found;
 };

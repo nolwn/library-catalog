@@ -7,4 +7,4 @@ bookRouter.get("/", getBooks);
 bookRouter.get("/:id", getBook);
 bookRouter.post("/", createBook);
 bookRouter.delete("/:id", deleteBook);
-bookRouter.put("/:id", updateBook)
+bookRouter.put("/", updateBook);

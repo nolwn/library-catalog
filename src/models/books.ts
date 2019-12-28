@@ -37,9 +37,6 @@ export const deleteBook = (id: string): IBook | null => {
         return true;
     });
 
-    if (!found) {
-        return null;
-    }
     return found;
 };
 

@@ -41,6 +41,18 @@ export const deleteBook: express.RequestHandler = (req: express.Request, res: ex
     }
 };
 
+export const updateBook: express.RequestHandler = (req: express.Request, res: express.Response): void => {
+    try {
+        const book: IBook | null = models.updateBook(req.params.id);
+        if (!book) {
+            res.status(404).send();
+        } else {
+            res.status(200).send(book);
+        }
+    } catch (err) {
+        res.status(500).send();
+    }
+};
 export const createBook: express.RequestHandler = (req: express.Request, res: express.Response): void => {
     try {
         const bookId: string = models.createBook(req.body);

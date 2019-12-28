@@ -42,3 +42,9 @@ export const deleteBook = (id: string): IBook | null => {
     }
     return found;
 };
+
+export const updateBook = (id: string): IBook | null => {
+    const found = getBook(id);
+    //FIXME expand with body
+    return found;
+};

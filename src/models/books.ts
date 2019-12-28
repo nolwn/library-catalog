@@ -1,18 +1,28 @@
-import * as data from "../books.json"
-import { IBook } from "../types"
+import short from "short-uuid";
+import * as data from "../books.json";
+import { IBook, IPostBook } from "../types";
 
-let books: IBook[] = data.books;
+const books: IBook[] = data.books;
 
 export const getBooks = (): IBook[] => {
     return books;
 };
 
 export const getBook = (id: string): IBook | null => {
-    const found = books.find((book) => book.id === id);
-    if (found === undefined) {
-        return null;
+    for (const book of books) {
+        if (book.id === id)  {
+            return book;
+        }
     }
-    return found;
+    return null;
+};
+
+export const createBook = (createdBook: IPostBook): string => {
+    const id = short.uuid();
+    const newBook = { id, ...createdBook };
+
+    books.push(newBook);
+    return id;
 };
 
 export const deleteBook = (id: string): IBook | null => {
@@ -30,8 +40,6 @@ export const deleteBook = (id: string): IBook | null => {
     if (!found) {
         return null;
     }
-
-    books = newBooks;
     return found;
 };
 

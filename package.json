@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --require ts-node/register src/test/*.test.ts"
+    "test": "./node_modules/mocha/bin/mocha --require ts-node/register src/test/*.test.ts",
+    "build": "tsc"
   },
   "author": "Nolan Hellyer",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "mocha": "^6.2.2",
-    "ts-node-dev": "^1.0.0-pre.44"
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tslint": "^5.20.1"
   }
 }

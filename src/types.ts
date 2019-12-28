@@ -16,3 +16,21 @@ export interface Book {
     keywords?: string[];
     description?: string;
 }
+
+export interface PostBook {
+    title: string;
+    authorFirst?: string;
+    authorLast: string;
+
+    edition?: string;
+    place?: string;
+    publisher?: string;
+    date?: string;
+
+    isbn10?: string;
+    isbn13?: string;
+    LOC?: string;
+
+    keywords?: string[];
+    description?: string;
+}

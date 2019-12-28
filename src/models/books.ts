@@ -10,3 +10,8 @@ export const getBooks = (): string[] => {
 export const getBook = (): Book => {
     return books[0];
 };
+
+export const createBook = (createdBook: Book): Book => {
+    books.push(createdBook);
+    return createdBook
+};

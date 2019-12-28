@@ -4,7 +4,7 @@ import { Book, PostBook } from "../types"
 
 export const getBooks: express.RequestHandler = (req: express.Request, res: express.Response): void => {
     try {
-        const books: string[] = models.getBooks();
+        const books: Book[] = models.getBooks();
         if (!books) {
             res.status(404);
         }
@@ -16,7 +16,7 @@ export const getBooks: express.RequestHandler = (req: express.Request, res: expr
 
 export const getBook: express.RequestHandler = (req: express.Request, res: express.Response): void => {
     try {
-        const book: Book = models.getBook();
+        const book: Book | null = models.getBook(req.params.id);
         if (!book) {
             res.status(404);
         }

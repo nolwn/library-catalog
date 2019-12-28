@@ -7,6 +7,9 @@ export const getBooks = (): string[] => {
     return [ "Moby Dick", "Jane Eyre", "20,000 Leagues Under the Sea" ];
 };
 
-export const getBook = (): Book => {
-    return books[0];
+export const getBook = (id: string): Book | null => {
+    for (const book of books) {
+        if (book.id === id) return book;
+    }
+    return null;
 };

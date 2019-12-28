@@ -2,6 +2,7 @@ interface Book {
     title: string;
     author_first?: string;
     author_last: string;
+    id: string;
 
     edition?: string;
     place?: string;

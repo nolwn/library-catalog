@@ -5,6 +5,12 @@
             "authorFirst": "Herman",
             "authorLast": "Melville",
             "id": "1"
+        },
+        {
+            "title": "Dune",
+            "authorFirst": "Frank",
+            "authorLast": "Herbert",
+            "id": "2"
         }
     ]
 }

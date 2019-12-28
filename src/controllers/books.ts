@@ -1,5 +1,6 @@
 import * as express from "express";
 import * as models from "../models/books";
+import { Book } from "../types"
 
 export const getBooks: express.RequestHandler = (req: express.Request, res: express.Response): void => {
     try {

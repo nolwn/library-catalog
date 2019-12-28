@@ -4,7 +4,7 @@ import { getBooks, getBook } from "../controllers/books";
 export const bookRouter: Router = Router();
 
 bookRouter.get("/", getBooks);
-book
+bookRouter.get("/", getBook)
 
 // get getBook to retun a book from a json library
 

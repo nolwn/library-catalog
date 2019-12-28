@@ -1,15 +1,26 @@
-import * as data  from "../books.json"
-import { Book } from "../types"
+import * as data from "../books.json"
+import { IBook } from "../types"
 
-const books: Book[] = data.books;
+let books: IBook[] = data.books;
 
-export const getBooks = (): Book[] => {
+export const getBooks = (): IBook[] => {
     return books;
 };
 
-export const getBook = (id: string): Book | null => {
-    for (const book of books) {
-        if (book.id === id) return book;
+export const getBook = (id: string): IBook | null => {
+    const found = books.find((book) => book.id === id);
+    if (found === undefined) {
+        return null;
     }
-    return null;
+    return found;
+};
+
+export const deleteBook = (id: string): IBook | null => {
+    const found = books.find((book) => book.id === id);
+    if (!found) {
+        return null;
+    }
+    const newBooks = books.filter((book) => book.id !== id);
+    books = newBooks;
+    return found;
 };

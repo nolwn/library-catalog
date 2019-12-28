@@ -16,11 +16,21 @@ export const getBook = (id: string): IBook | null => {
 };
 
 export const deleteBook = (id: string): IBook | null => {
-    const found = books.find((book) => book.id === id);
+    let found = null;
+
+    const newBooks = books.filter((book) => {
+        if (book.id === id) {
+            found = book;
+            return false;
+        }
+
+        return true;
+    });
+
     if (!found) {
         return null;
     }
-    const newBooks = books.filter((book) => book.id !== id);
+
     books = newBooks;
     return found;
 };

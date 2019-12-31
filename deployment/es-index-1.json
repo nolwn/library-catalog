@@ -1,0 +1,51 @@
+{
+    "settings": {
+        "index": {
+            "number_of_shards": 3,
+            "number_of_replicas": 2
+        }
+    },
+    "mappings": {
+        "properties": {
+            "id": {
+                "type": "keyword"
+            },
+            "title": {
+                "type": "keyword"
+            },
+            "authorFirst": {
+                "type": "keyword"
+            },
+            "authorLast": {
+                "type": "keyword"
+            },
+            "description": {
+                "type": "text"
+            },
+            "edition": {
+                "type": "keyword"
+            },
+            "place": {
+                "type": "keyword"
+            },
+            "publisher": {
+                "type": "keyword"
+            },
+            "date": {
+                "type": "keyword"
+            },
+            "isbn10": {
+                "type": "keyword"
+            },
+            "isbn13": {
+                "type": "keyword"
+            },
+            "LOC": {
+                "type": "keyword"
+            },
+            "keywords": {
+                "type": "keyword"
+            }
+        }
+    }
+}
